@@ -1,0 +1,1 @@
+{"version":3,"sources":["styles.css"],"names":[],"mappings":"AAAA,EACE,SAAU,CACV,QACF,CACA,KACE,gCACF","file":"main.c4dd3451.chunk.css","sourcesContent":["* {\n  padding: 0;\n  margin: 0;\n}\nbody {\n  background: #ecf2f381;\n}\n"]}
