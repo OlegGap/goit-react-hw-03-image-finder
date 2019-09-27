@@ -1,8 +1,8 @@
 {
-  "name": "goit-react-hw-02-reader",
+  "name": "goit-react-hw-03-image-finder",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://oleggap.github.io/goit-react-hw-02-bank-account/",
+  "homepage": "https://oleggap.github.io/goit-react-hw-03-image-finder/",
   "dependencies": {
     "@emotion/core": "^10.0.17",
     "@emotion/styled": "^10.0.17",

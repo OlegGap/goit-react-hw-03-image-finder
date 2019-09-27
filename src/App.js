@@ -1,11 +1,11 @@
 import React from 'react';
 import './styles.css';
-import Dashboard from './components/Dashboard/Dashboard';
+import SearchForm from './components/SearchForm/SearchForm';
 
 function App() {
   return (
     <>
-      <Dashboard />
+      <SearchForm />
     </>
   );
 }
