@@ -1,2 +1,0 @@
-(window["webpackJsonpgoit-react-hw-03-image-finder"]=window["webpackJsonpgoit-react-hw-03-image-finder"]||[]).push([[0],{3:function(e,n,t){e.exports=t(9)},8:function(e,n,t){},9:function(e,n,t){"use strict";t.r(n);var r=t(0),a=t.n(r),c=t(2),i=t.n(c),o=(t(8),function(){return a.a.createElement("div",null,"let`s")});var l=function(){return a.a.createElement(a.a.Fragment,null,a.a.createElement(o,null))};i.a.render(a.a.createElement(l,null),document.getElementById("root"))}},[[3,1,2]]]);
-//# sourceMappingURL=main.af413312.chunk.js.map
