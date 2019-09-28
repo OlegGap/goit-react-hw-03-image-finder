@@ -1,0 +1,62 @@
+.photoCard {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+    0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+  img {
+    height: 260px;
+    object-fit: cover;
+  }
+}
+
+.stats {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  user-select: none;
+  color: #414141;
+  padding: 4px;
+}
+
+.statsItem {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.fullscreenButton {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  font: inherit;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 200ms linear, opacity 200ms linear;
+  opacity: 0;
+
+  span {
+    font-size: 36px;
+  }
+}
+.fullscreenButton:hover,
+.fullscreenButton:focus {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.photoCard:hover .fullscreenButton,
+.photoCard:focus .fullscreenButton {
+  opacity: 1;
+}

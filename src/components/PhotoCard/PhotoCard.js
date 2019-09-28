@@ -1,0 +1,47 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import styles from './PhotoCard.module.scss';
+
+const PhotoCard = ({ gallery }) => {
+  return (
+    <div className={styles.photoCard}>
+      <img src={gallery.webformatURL} alt="" />
+
+      <div className={styles.stats}>
+        <p className={styles.statsItem}>
+          <i className="material-icons">thumb_up</i>
+          {gallery.likes}
+        </p>
+        <p className={styles.statsItem}>
+          <i className="material-icons">visibility</i>
+          {gallery.views}
+        </p>
+        <p className={styles.statsItem}>
+          <i className="material-icons">comment</i>
+          {gallery.comments}
+        </p>
+        <p className={styles.statsItem}>
+          <i className="material-icons">cloud_download</i>
+          {gallery.downloads}
+        </p>
+      </div>
+
+      <button type="button" className={styles.fullscreenButton}>
+        <i className="material-icons">zoom_out_map</i>
+      </button>
+    </div>
+  );
+};
+
+PhotoCard.propTypes = {
+  gallery: PropTypes.exact({
+    id: PropTypes.number,
+    webformatURL: PropTypes.string,
+    largeImageURL: PropTypes.string,
+    likes: PropTypes.number,
+    views: PropTypes.number,
+    comments: PropTypes.number,
+    downloads: PropTypes.number,
+  }).isRequired,
+};
+export default PhotoCard;
