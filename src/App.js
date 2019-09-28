@@ -13,33 +13,49 @@ class App extends React.Component {
     this.state = {
       currentInput: '',
       gallery: [],
+      error: '',
+      isLoading: true,
+      isFindGallery: false,
       perPageCount: 8,
     };
   }
 
   componentDidMount() {
+    this.setState({ isFindGallery: true });
     fetch(API_URL_DEFAULT)
       .then(response => response.json())
       .then(response => {
         this.setState({ gallery: response.hits });
-      });
+      })
+      .catch(error => this.setState({ error }))
+      .finally(() => this.setState({ isLoading: false }));
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const { currentInput, perPageCount, gallery } = this.state;
-
-    if (prevState.gallery === gallery) {
+    const { currentInput, perPageCount } = this.state;
+    if (
+      prevState.currentInput !== currentInput ||
+      prevState.perPageCount !== perPageCount
+    ) {
       if (prevState.currentInput !== currentInput) {
         // eslint-disable-next-line react/no-did-update-set-state
         this.setState({ perPageCount: 8 });
       }
+
+      // eslint-disable-next-line react/no-did-update-set-state
+      this.setState({ isFindGallery: false });
       const API_URL = `https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${currentInput}&page=1&per_page=${perPageCount}&key=${API_KEY}`;
       fetch(API_URL)
         .then(response => response.json())
         .then(response => {
           this.setState({ gallery: response.hits });
+          if (response.hits.length > 0) {
+            this.setState({ isFindGallery: true });
+          }
           window.scrollTo('0', document.body.scrollHeight);
-        });
+        })
+        .catch(error => this.setState({ error }))
+        .finally(() => this.setState({ isLoading: false }));
     }
   }
 
@@ -58,7 +74,14 @@ class App extends React.Component {
   };
 
   render() {
-    const { currentInput, gallery } = this.state;
+    const {
+      currentInput,
+      gallery,
+      error,
+      isLoading,
+      isFindGallery,
+    } = this.state;
+
     return (
       <section className={styles.app}>
         <SearchForm
@@ -66,9 +89,10 @@ class App extends React.Component {
           onChange={this.hundelChangeInput}
           currentValue={currentInput}
         />
-        {gallery.length > 0 ? (
-          <Gallery galleryAll={gallery} />
-        ) : (
+        {error && <p>Whoops, something went wrong: {error.message}</p>}
+        {gallery.length > 0 && <Gallery galleryAll={gallery} />}
+        {!isFindGallery && <p>Nothing found on your request...</p>}
+        {isLoading && (
           <div>
             <ContentLoader>
               <rect x="20" y="0" rx="5" ry="5" width="80" height="80" />

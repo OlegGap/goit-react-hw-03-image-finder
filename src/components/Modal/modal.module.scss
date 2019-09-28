@@ -1,0 +1,31 @@
+.fullscreenButton {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  font: inherit;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 200ms linear, opacity 200ms linear;
+  opacity: 0;
+
+  span {
+    font-size: 36px;
+  }
+}
+.fullscreenButton:hover,
+.fullscreenButton:focus {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.photoCard:hover .fullscreenButton,
+.photoCard:focus .fullscreenButton {
+  opacity: 1;
+}

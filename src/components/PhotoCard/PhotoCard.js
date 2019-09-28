@@ -1,37 +1,52 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styles from './PhotoCard.module.scss';
+import Modal from '../Modal/Modal';
 
-const PhotoCard = ({ gallery }) => {
-  return (
-    <div className={styles.photoCard}>
-      <img src={gallery.webformatURL} alt="" />
+class PhotoCard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+    this.myRef = React.createRef();
+  }
 
-      <div className={styles.stats}>
-        <p className={styles.statsItem}>
-          <i className="material-icons">thumb_up</i>
-          {gallery.likes}
-        </p>
-        <p className={styles.statsItem}>
-          <i className="material-icons">visibility</i>
-          {gallery.views}
-        </p>
-        <p className={styles.statsItem}>
-          <i className="material-icons">comment</i>
-          {gallery.comments}
-        </p>
-        <p className={styles.statsItem}>
-          <i className="material-icons">cloud_download</i>
-          {gallery.downloads}
-        </p>
+  render() {
+    const { gallery } = this.props;
+    return (
+      <div className={styles.photoCard}>
+        <img src={gallery.webformatURL} alt="" />
+
+        <div className={styles.stats}>
+          <p className={styles.statsItem}>
+            <i className="material-icons">thumb_up</i>
+            {gallery.likes}
+          </p>
+          <p className={styles.statsItem}>
+            <i className="material-icons">visibility</i>
+            {gallery.views}
+          </p>
+          <p className={styles.statsItem}>
+            <i className="material-icons">comment</i>
+            {gallery.comments}
+          </p>
+          <p className={styles.statsItem}>
+            <i className="material-icons">cloud_download</i>
+            {gallery.downloads}
+          </p>
+        </div>
+        <button
+          type="button"
+          className={styles.fullscreenButton}
+          ref={this.myRef.current}
+        >
+          <i className="material-icons">zoom_out_map</i>
+        </button>
+        <Modal imgSrc={gallery.largeImageURL} />
+        {/* TODO: add prop DOM NODE (button) to component Modal */}
       </div>
-
-      <button type="button" className={styles.fullscreenButton}>
-        <i className="material-icons">zoom_out_map</i>
-      </button>
-    </div>
-  );
-};
+    );
+  }
+}
 
 PhotoCard.propTypes = {
   gallery: PropTypes.exact({
