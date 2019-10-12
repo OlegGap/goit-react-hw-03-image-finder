@@ -14,7 +14,11 @@ class PhotoCard extends Component {
     const { gallery } = this.props;
     return (
       <div className={styles.photoCard}>
-        <img src={gallery.webformatURL} alt="" />
+        <img
+          className={styles.photoCardImage}
+          src={gallery.webformatURL}
+          alt=""
+        />
 
         <div className={styles.stats}>
           <p className={styles.statsItem}>
