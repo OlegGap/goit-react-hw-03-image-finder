@@ -25,6 +25,7 @@
     "jest": true
   },
   "rules": {
+    "react/state-in-constructor": 0,
     "react/no-did-update-set-state": 0,
     "import/extensions": 0,
     "no-console": 1,
