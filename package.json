@@ -11,7 +11,7 @@
     "emotion": "^10.0.17",
     "gh-pages": "^2.1.1",
     "material-design-icons": "^3.0.1",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-content-loader": "^4.3.0",
